@@ -1,6 +1,7 @@
 package com.monkey1024.string;
 
 import cn.hutool.db.Session;
+import com.sun.deploy.util.StringUtils;
 import org.junit.Test;
 
 import java.io.File;
@@ -8,6 +9,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class StringTest02 {
+
+    /**
+     * 字符串截取
+     * public String substring(int beginIndex, int endIndex)
+     * 注意：beginIndex -- 起始索引（包括）, 索引从 0 开始
+     * endIndex -- 结束索引（不包括！）。
+     */
+    @Test
+    public void StringClip(){
+        String kobe = "col_aqi";
+        String substring = kobe.substring(0, 3);
+        System.out.println(substring);
+    }
 
     @Test
     public void dateTest1() {

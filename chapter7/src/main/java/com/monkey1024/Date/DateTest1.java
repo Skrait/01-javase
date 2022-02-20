@@ -1,11 +1,12 @@
 package com.monkey1024.Date;
 
+import cn.hutool.core.date.DateUtil;
 import org.junit.Test;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 /**
  * Author Peekaboo
@@ -43,5 +44,25 @@ public class DateTest1 {
             objKey = s;
         }
         System.out.println(objKey);
+    }
+
+    @Test
+    public void timeTest2(){
+        //获取当前时间戳
+        long l = System.currentTimeMillis();
+        Long l1 = 1644800000000L;
+        System.out.println(l);
+
+        //用Hutool工具格式化时间戳
+        Date date = new Date(l1);
+        String format = DateUtil.format(date,"yyyy-MM-dd HH:mm:ss");
+        System.out.println(format + "  dateUtil");
+
+        //用java8 DateTimeFormatter
+
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(date);
+
+
     }
 }

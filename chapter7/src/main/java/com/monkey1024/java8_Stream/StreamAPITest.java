@@ -5,6 +5,17 @@ import org.junit.Test;
 import java.util.*;
 
 public class StreamAPITest {
+
+
+    /**
+     *
+     */
+
+
+
+
+
+
     
     //常见Stream方式二：通过数组
     @Test
