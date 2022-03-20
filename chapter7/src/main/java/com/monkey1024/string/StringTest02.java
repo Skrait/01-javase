@@ -50,4 +50,15 @@ public class StringTest02 {
     public void uploadLocalEntity(){
 
     }
+
+    @Test
+    public void change1(){
+        int[] arr = {1,2,3,4,5};
+        change(arr);
+        System.out.println(arr[0]);
+    }
+
+    public static void change(int [] array){
+        array[0] = 0;
+    }
 }

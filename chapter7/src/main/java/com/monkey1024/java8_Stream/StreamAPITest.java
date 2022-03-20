@@ -21,7 +21,6 @@ public class StreamAPITest {
     @Test
     public void test2(){
         int[] arr = {1, 2, 3, 4, 5, 6};
-
         Arrays.stream(arr);
 
     }
