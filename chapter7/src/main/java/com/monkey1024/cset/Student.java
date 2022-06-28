@@ -9,8 +9,8 @@ public class Student implements Comparable{
     }
 
     public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
+        keywordthis.name = name;
+        keywordthis.age = age;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class Student implements Comparable{
     }
 
     public void setName(String name) {
-        this.name = name;
+        keywordthis.name = name;
     }
 
     public int getAge() {
@@ -34,7 +34,7 @@ public class Student implements Comparable{
     }
 
     public void setAge(int age) {
-        this.age = age;
+        keywordthis.age = age;
     }
 
 

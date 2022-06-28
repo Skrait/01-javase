@@ -1,9 +1,6 @@
 package com.monkey1024.afile;
 
-import org.omg.CosNaming.NamingContextPackage.NotFound;
-
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /*

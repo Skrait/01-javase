@@ -17,8 +17,8 @@ public class Person {
 
     public Person(String name, int age) {
         super();
-        this.name = name;
-        this.age = age;
+        keywordthis.name = name;
+        keywordthis.age = age;
     }
 
     public String getName() {
@@ -26,7 +26,7 @@ public class Person {
     }
 
     public void setName(String name) {
-        this.name = name;
+        keywordthis.name = name;
     }
 
     public int getAge() {
@@ -34,7 +34,7 @@ public class Person {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        keywordthis.age = age;
     }
 
     //重写toString方法
@@ -46,12 +46,12 @@ public class Person {
     //重写equals方法
     @Override
     public boolean equals(Object obj) {
-        if(this == obj){
+        if(keywordthis == obj){
             return true;
         }
         if(obj instanceof Person){
             Person p = (Person)obj;
-            if(this.name.equals(p.getName()) && this.age == p.getAge()){
+            if(keywordthis.name.equals(p.getName()) && keywordthis.age == p.getAge()){
                 return true;
             }
         }
