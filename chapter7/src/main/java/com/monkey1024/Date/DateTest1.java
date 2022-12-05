@@ -194,6 +194,7 @@ public class DateTest1 {
     public static final String DATE_FORMAT_YMD = "yyyy-MM-dd";
     public static final String DATE_FORMAT_HMS = "HH:mm:ss";
     public static final String DATE_FORMAT_HM = "HH:mm";
+    public static final String DATE_YEAR = "yyyy";
     public static final String DATE_FORMAT_YMDHM = "yyyy-MM-dd HH:mm";
     public static final String DATE_FORMAT_YMDHMS = "yyyyMMddHHmmss";
     public static final long ONE_DAY_MILLS = 3600000 * 24;
@@ -281,5 +282,75 @@ public class DateTest1 {
         last.set(Calendar.SECOND,last.getActualMinimum(Calendar.SECOND)); //最早秒
         System.out.println(last.getTime());
     }
+
+    /**
+     * 获取前30天的时间
+     */
+    @Test
+    public void getLast30Day(){
+        Date nowDate = new Date();
+        Calendar nowCalendar = Calendar.getInstance(Locale.CHINA);
+        nowCalendar.setTime(nowDate);
+        nowCalendar.set(Calendar.DAY_OF_MONTH,-100);
+        Date time = nowCalendar.getTime();
+        System.out.println(time);
+    }
+
+
+    /**
+     * 获取当年12个月
+     * @param
+     * @param
+     * @return
+     */
+    @Test
+    public void get12Month() {
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM");
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.setTime(date);
+        calendar1.set(Calendar.MONTH,12); //00小时
+
+        List<String> strings=new ArrayList<>();
+
+        for (int i1 = 0; i1 < 12; i1++) {
+            calendar1.add(Calendar.MONTH,-1);
+            Date time1 = calendar1.getTime();
+            strings.add(sdf2.format(time1));
+        }
+        System.out.println(strings);
+    }
+
+    /**
+     * 获取当前时间所在年份的最早时间(精确到秒)
+     */
+    @Test
+    public void getFistTimeOfYear(){
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.DAY_OF_YEAR,calendar.getActualMinimum(Calendar.DAY_OF_YEAR));
+        calendar.set(Calendar.HOUR_OF_DAY,calendar.getActualMinimum(Calendar.HOUR_OF_DAY));
+        calendar.set(Calendar.MINUTE,calendar.getActualMinimum(Calendar.MINUTE));
+        calendar.set(Calendar.SECOND,calendar.getActualMinimum(Calendar.SECOND));
+        System.out.println(calendar.getTime());
+    }
+
+    /**
+     * 获取当前时间所在年份的最早时间(精确到秒)
+     */
+    @Test
+    public void getLastTimeOfYear(){
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.DAY_OF_YEAR,calendar.getActualMaximum(Calendar.DAY_OF_YEAR));
+        calendar.set(Calendar.HOUR_OF_DAY,calendar.getActualMaximum(Calendar.HOUR_OF_DAY));
+        calendar.set(Calendar.MINUTE,calendar.getActualMaximum(Calendar.MINUTE));
+        calendar.set(Calendar.SECOND,calendar.getActualMaximum(Calendar.SECOND));
+        System.out.println(calendar.getTime());
+    }
+
 
 }
