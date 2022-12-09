@@ -25,4 +25,17 @@ public class Double {
         float result = num1 - num2;
         System.out.println(result);
     }
+
+    @Test
+    public void dividTest01(){
+//        Float num1 = 0;
+//        Float num2 = 100;
+//        float result = 0 / 100;
+        float v = Float.parseFloat("0");
+
+
+        float v1 = Float.parseFloat("100");
+
+
+    }
 }
