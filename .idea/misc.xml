@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/chapter03/pom.xml" />
         <option value="$PROJECT_DIR$/IpAddress/pom.xml" />
         <option value="$PROJECT_DIR$/JUC/pom.xml" />
+        <option value="$PROJECT_DIR$/../data_structure/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

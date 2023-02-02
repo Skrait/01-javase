@@ -52,7 +52,7 @@ public class fractionAddition {
 
         }
 
-        public static int gCD(int m, int n) {
+        public static int GCD(int m, int n) {
             m = Math.abs(m);
             n = Math.abs(n);
             int result = 0;

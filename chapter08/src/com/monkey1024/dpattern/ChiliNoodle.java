@@ -11,7 +11,7 @@ public class ChiliNoodle implements NoodleDecorate{
     private Noodle noodle;
 
     public ChiliNoodle(Noodle noodle) {
-        keywordthis.noodle = noodle;
+        this.noodle = noodle;
     }
 
     /**
