@@ -17,13 +17,13 @@ public class LinkListAdd2th {
 
     @Test
     public void addTwoNumbersTest1(){
-        ListNode l1 = new ListNode(2);
+        ListNode l1 = new ListNode(9);
         ListNode l2 = new ListNode(4);
         ListNode l3 = new ListNode(3);
         l1.next = l2;
         l2.next = l3;
 
-        ListNode l4 = new ListNode(5);
+        ListNode l4 = new ListNode(8);
         ListNode l5 = new ListNode(6);
         ListNode l6 = new ListNode(4);
         l4.next = l5;
@@ -42,14 +42,15 @@ public class LinkListAdd2th {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode root = new ListNode(0);
         ListNode cursor = root;
-        int carry = 0;
+        int carry = 0;//除数
         while(l1 != null || l2 != null || carry != 0) {
             int l1Val = l1 != null ? l1.val : 0;
             int l2Val = l2 != null ? l2.val : 0;
             int sumVal = l1Val + l2Val + carry;
-            carry = sumVal / 10;
+            carry = sumVal / 10;//除数
 
-            ListNode sumNode = new ListNode(sumVal % 10);
+            int divid = sumVal % 10 ;//余数
+            ListNode sumNode = new ListNode(divid);
             cursor.next = sumNode;
             cursor = sumNode;
 
