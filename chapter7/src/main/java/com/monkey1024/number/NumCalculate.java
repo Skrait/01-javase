@@ -2,6 +2,7 @@ package com.monkey1024.number;
 
 import org.junit.Test;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -12,29 +13,40 @@ import java.text.NumberFormat;
  */
 public class NumCalculate {
 
-    @Test
-    public void getPercentTest1(){
-        String percent1 = getPercent(3, 12);
-        String percent2 = getPercent(5, 12);
-        String percent3 = getPercent(4, 12);
-        System.out.println(percent1 + percent2  + percent3);
-
-    }
+//    @Test
+//    public void getPercentTest1(){
+//        String percent1 = getPercent(3, 12);
+//        String percent2 = getPercent(5, 12);
+//        String percent3 = getPercent(4, 12);
+//        System.out.println(percent1 + percent2  + percent3);
+//
+//    }
 
 
     /**
      * 方式一：使用java.text.NumberFormat实现
-     * @param x
-     * @param y
+     * @param
+     * @param
      * @return
      */
-    public static String getPercent(int x, int y) {
-        double d1 = x * 1.0;
-        double d2 = y * 1.0;
+    @Test
+    public  void getPercent() {
+
+        double d1 = 25* 1.0;
+        double d2 = 30 * 1.0;
         NumberFormat percentInstance = NumberFormat.getPercentInstance();
         // 设置保留几位小数，这里设置的是保留两位小数
         percentInstance.setMinimumFractionDigits(2);
-        return percentInstance.format(d1 / d2);
+        String num = percentInstance.format(d1 / d2);
+        double doubleNum = d1*100 / d2;
+        System.out.println(num);
+
+        NumberFormat format = NumberFormat.getNumberInstance();
+        format.setMaximumFractionDigits(2);
+        format.setRoundingMode(RoundingMode.HALF_UP);
+        format.setGroupingUsed(true);
+        String stringNum = format.format(doubleNum);
+        stringNum = stringNum + "%";
     }
 
     /**

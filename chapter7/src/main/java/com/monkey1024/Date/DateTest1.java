@@ -1,13 +1,14 @@
 package com.monkey1024.Date;
 
 import cn.hutool.core.date.DateUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDateTime;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 
@@ -15,6 +16,7 @@ import java.util.*;
  * Author Peekaboo
  * Date 2021/12/27 19:49
  */
+@Slf4j
 public class DateTest1 {
 
     @Test
@@ -352,5 +354,65 @@ public class DateTest1 {
         System.out.println(calendar.getTime());
     }
 
+    /*
+     * 获取最近n月份的List
+     * 包含当前月份
+     */
+    @Test
+    public void getNMonth(){
+        ArrayList<Date> data = new ArrayList<>();
+        ArrayList<String> dataString = new ArrayList<>();
+        //格式
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM");
+        ArrayList<LocalDateTime> localDateS = new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        for (int i = 0; i < 6; i++) {
+            calendar.add(Calendar.MONTH, - 1);
+            Date time = calendar.getTime();
+            dataString.add(dateTimeFormatter.format(date2LocalDate(time)));
+            data.add(time);
+        }
+        System.out.println(dataString);
+        //System.out.println(data);
+
+
+    }
+
+    public LocalDateTime date2LocalDate(Date date){
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+
+        LocalDate localDate = instant.atZone(zoneId).toLocalDate();
+        LocalDateTime localDateTime = instant.atZone(zoneId).toLocalDateTime();
+//        System.out.println("Date = " + date);
+//        System.out.println("LocalDate = " + localDate);
+        return localDateTime;
+    }
+
+    /*
+    获取本年度的十二个月份 yyyy-MM
+     */
+    @Test
+    public void getMonthByYear(){
+        List<String> monthByYear = com.monkey1024.Date.DateUtil.getMonthByYear();
+        System.out.println(monthByYear);
+    }
+
+    /**
+     * 获取去年年份
+     * @return 年份
+     */
+    @Test
+    public void getLastYear() throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
+        Date newDate = dateFormat.parse("2022");
+        Calendar ca = Calendar.getInstance();
+        ca.setTime(newDate);
+        ca.add(Calendar.YEAR,-1);
+        Date year = ca.getTime();
+        String yearDate = dateFormat.format(year);
+        System.out.println(yearDate);
+    }
 
 }
